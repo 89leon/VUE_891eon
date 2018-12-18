@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filters</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="app">
+<input  v-model="message">
+
+   {{ message | capitalize }}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+</html>
+
+
+<script>
+//OPTION 1
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+});
+//https://github.com/freearhey/vue2-filters
+
+//FILTERS LIST : https://vuejs.org/v2/api/#filters
+new Vue({
+    el:'#app',
+    data:{
+        message : ''
+        //OPTION 2
+    },filters: {
+  capitalize: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
+}
+
+});
+</script>
