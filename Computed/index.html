@@ -1,0 +1,31 @@
+<html>
+<head>
+
+</head>
+<body>
+<div id="app">
+    <form>
+       <span>{{count}}/30</span>
+       <textarea v-model='text'></textarea> 
+       <button v-if="count <= 30">Send</button>
+    </form>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+
+</html>
+
+<script>
+new Vue({
+el:'#app',
+data:{
+    text:''
+},
+computed:{
+    count: function(){
+        return this.text.length;
+    }
+}
+
+});
+</script>
